@@ -1,17 +1,16 @@
 import styled from "styled-components";
 import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Search() {
   const [input, setInput] = useState("");
   const navigate = useNavigate();
 
-
   const submitHandler = (e) => {
     e.preventDefault();
-    navigate('/searched/' + input);
-  }
+    navigate("/searched/" + input);
+  };
 
   return (
     <StyledForm onSubmit={submitHandler}>
@@ -39,13 +38,18 @@ const StyledForm = styled.form`
   input {
     border: none;
     background: linear-gradient(to right, #494949, #313131);
-    font-size: 1rem;
+    font-size: 0.8rem;
     color: #fff;
     padding: 0.5rem 3rem;
     border: none;
     border-radius: 0.5rem;
     outline: none;
     width: 100%;
+
+    &::placeholder {
+      position: relative;
+      left: 20px;
+    }
   }
 
   svg {
@@ -55,10 +59,14 @@ const StyledForm = styled.form`
     transform: translateY(-50%);
     color: #fff;
   }
+
+  @media (max-width: 1024px) {
+    margin: 0 1rem;
+  }
 `;
 
 const StyledSearchIcon = styled(FaSearch)`
-  margin-left: 1rem;
+  margin-left: 2rem;
 `;
 
 export default Search;

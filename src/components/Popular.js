@@ -12,7 +12,6 @@ function Popular() {
   }, []);
 
   const getPopular = async () => {
-
     const check = localStorage.getItem("popular");
 
     if (check) {
@@ -26,7 +25,6 @@ function Popular() {
       setPopular(data.recipes);
       console.log(data.recipes);
     }
-   
   };
 
   return (
@@ -40,7 +38,7 @@ function Popular() {
             arrows: false,
             pagination: false,
             drag: "free",
-            gap: "2rem"
+            gap: "2rem",
           }}
         >
           {popular.map((recipe) => {
@@ -48,9 +46,9 @@ function Popular() {
               <SplideSlide key={recipe.id}>
                 <Card>
                   <Link to={"/recipe/" + recipe.id}>
-                  <p>{recipe.title}</p>
-                  <img src={recipe.image} alt={recipe.title} />
-                  <Gradient />
+                    <p>{recipe.title}</p>
+                    <img src={recipe.image} alt={recipe.title} />
+                    <Gradient />
                   </Link>
                 </Card>
               </SplideSlide>
@@ -105,6 +103,6 @@ const Gradient = styled.div`
   width: 100%;
   height: 100%;
   background: linear-gradient(rgb(0, 0, 0, 0), rgb(0, 0, 0, 0.5));
-`
+`;
 
 export default Popular;

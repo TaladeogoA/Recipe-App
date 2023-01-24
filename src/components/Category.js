@@ -5,7 +5,6 @@ import { NavLink } from "react-router-dom";
 
 function Category() {
   return (
-
     <List>
       <StyledLink to={"/cuisine/Italian"}>
         <FaPizzaSlice />
@@ -20,12 +19,12 @@ function Category() {
       <StyledLink to={"/cuisine/Thai"}>
         <GiNoodles />
         <h4>Thai</h4>
-      </StyledLink> 
+      </StyledLink>
 
       <StyledLink to={"/cuisine/Chinese"}>
         <GiChopsticks />
         <h4>Chinese</h4>
-      </StyledLink> 
+      </StyledLink>
     </List>
   );
 }
@@ -34,7 +33,7 @@ const StyledLink = styled(NavLink)`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;  
+  align-items: center;
   border-radius: 50%;
   margin-right: 2rem;
   text-decoration: none;
@@ -68,12 +67,33 @@ const StyledLink = styled(NavLink)`
     }
   }
 
+  @media (max-width: 768px) {
+    width: 4.2rem;
+    height: 4.2rem;
+    /* border-radius: 10%; */
+    margin-right: 0rem;
+    padding: 0.5rem;
+    flex-direction: row;
+
+    h4 {
+      font-size: 0.8rem;
+      margin: 0.2rem;
+    }
+
+    svg {
+      display: none;
+    }
+  }
 `;
 
 const List = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 2rem;
+
+  @media (max-width: 768px) {
+    margin-top: 1rem;
+  }
 `;
 
 export default Category;

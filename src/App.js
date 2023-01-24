@@ -10,10 +10,10 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      <Nav>
-        <GiKnifeFork />
-        <Logo to="/"> Recipe Finder </Logo>
-      </Nav>
+        <Nav>
+          <GiKnifeFork />
+          <Logo to="/"> Recipe Finder </Logo>
+        </Nav>
         <Search />
         <Category />
         <Pages />
@@ -26,8 +26,8 @@ const Logo = styled(Link)`
   text-decoration: none;
   font-size: 1.5rem;
   font-weight: 400;
-  font-family: 'Lobster Two', cursive;
-`
+  font-family: "Lobster Two", cursive;
+`;
 
 const Nav = styled.div`
   padding: 2rem 0rem;
@@ -38,7 +38,11 @@ const Nav = styled.div`
   svg {
     font-size: 2rem;
   }
-`
 
+  @media (max-width: 768px) {
+    margin: 0 auto;
+    display: inline-block;
+  }
+`;
 
 export default App;

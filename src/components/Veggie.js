@@ -41,7 +41,7 @@ function Veggie() {
             gap: "2rem",
           }}
         >
-          {veggie.map((recipe) => {
+          {veggie?.map((recipe) => {
             return (
               <SplideSlide key={recipe.id}>
                 <Card>
