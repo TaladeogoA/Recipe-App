@@ -22,24 +22,26 @@ function Recipe() {
 
   return (
     <DetailWrapper>
-      <div className="recipe-img">
+      <Image className="recipe-img">
         <h2>{details.title}</h2>
         <img src={details.image} alt={details.title} />
-      </div>
+      </Image>
 
       <Info>
-        <StyledButton
-          className={activeTab === "instructions" ? "active" : ""}
-          onClick={() => setActiveTab("instructions")}
-        >
-          Instructions
-        </StyledButton>
-        <StyledButton
-          className={activeTab === "ingredients" ? "active" : ""}
-          onClick={() => setActiveTab("ingredients")}
-        >
-          Ingredients
-        </StyledButton>
+        <ButtonsContainer>
+          <StyledButton
+            className={activeTab === "instructions" ? "active" : ""}
+            onClick={() => setActiveTab("instructions")}
+          >
+            Instructions
+          </StyledButton>
+          <StyledButton
+            className={activeTab === "ingredients" ? "active" : ""}
+            onClick={() => setActiveTab("ingredients")}
+          >
+            Ingredients
+          </StyledButton>
+        </ButtonsContainer>
 
         {activeTab === "instructions" && (
           <div>
@@ -72,10 +74,6 @@ const DetailWrapper = styled.div`
     border: 2px solid #494949;
   }
 
-  h2 {
-    margin-bottom: 2rem;
-  }
-
   h4 {
     margin-top: 2rem;
   }
@@ -92,6 +90,55 @@ const DetailWrapper = styled.div`
   > div {
     flex: 1;
   }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+`;
+
+const Image = styled.div`
+  width: 50%;
+
+  h2 {
+    margin-bottom: 2rem;
+  }
+
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+      width: 70%;
+      margin: 0 auto;
+    }
+  }
+`;
+
+const Info = styled.div`
+  margin-left: 2rem;
+  width: 50%;
+
+  @media (max-width: 768px) {
+    margin-left: 0;
+    width: calc(100% - 4rem);
+    margin: 0 2rem;
+  }
+`;
+
+const ButtonsContainer = styled.div`
+  display: flex;
+
+  @media (max-width: 768px) {
+    margin-top: 1rem;
+    justify-content: center;
+  }
 `;
 
 const StyledButton = styled.button`
@@ -99,13 +146,13 @@ const StyledButton = styled.button`
   color: #313131;
   background: #fff;
   border: 2px solid black;
-  margin-right: 2rem;
+  margin-right: 1rem;
   font-size: 1rem;
   font-weight: 400;
-`;
 
-const Info = styled.div`
-  margin-left: 5rem;
+  @media (max-width: 1075px) {
+    padding: 0.5rem 1rem;
+  }
 `;
 
 export default Recipe;

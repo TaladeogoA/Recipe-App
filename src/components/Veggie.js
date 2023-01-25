@@ -35,10 +35,18 @@ function Veggie() {
         <Splide
           options={{
             perPage: 4,
-            arrows: false,
             pagination: false,
             drag: "free",
             gap: "2rem",
+            arrows: true,
+            breakpoints: {
+              600: {
+                perPage: 1,
+              },
+              1000: {
+                perPage: 2,
+              },
+            },
           }}
         >
           {veggie?.map((recipe) => {
@@ -95,6 +103,12 @@ const Card = styled.div`
     justify-content: center;
     align-items: center;
   }
+
+  /* @media (max-width: 768px) {
+    p {
+      font-size: 0.8rem;
+    }
+  } */
 `;
 
 const Gradient = styled.div`
